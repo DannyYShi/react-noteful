@@ -1,6 +1,6 @@
 import React from "react";
 
-class ErrorPage extends React.Component {
+export default class ErrorBoundary extends React.Component {
   state = { error: null };
 
   static getDerivedStateFromError(error) {
@@ -21,5 +21,3 @@ class ErrorPage extends React.Component {
     return this.props.children;
   }
 }
-
-export default ErrorPage;

@@ -11,14 +11,14 @@ import NoteDetails from "./Note/NoteDetails";
 import AddFolder from "./Folder/AddFolder";
 import AddNote from "./Note/AddNote";
 
-import ErrorPage from "./ErrorPage";
+import ErrorBoundary from "./ErrorBoundary";
 
 class App extends React.Component {
   render() {
     return (
       <>
         <Header></Header>
-        <ErrorPage>
+        <ErrorBoundary>
           <FileContextProvider>
             <div className="body">
               <div className="sidebar">
@@ -55,7 +55,7 @@ class App extends React.Component {
               </main>
             </div>
           </FileContextProvider>
-        </ErrorPage>
+        </ErrorBoundary>
       </>
     );
   }
