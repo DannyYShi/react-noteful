@@ -1,17 +1,17 @@
 import React from "react";
 import { Route } from "react-router-dom";
-import { FileContextProvider } from "./FileContext";
+import { FileContextProvider } from "../FileContext";
 
 import Header from "./Header";
 import FoldersSidebar from "./FoldersSidebar";
-import NoteSidebar from "./Note/NoteSidebar";
+import NoteSidebar from "../Note/NoteSidebar";
 import NotesList from "./NotesList";
-import NoteDetails from "./Note/NoteDetails";
+import NoteDetails from "../Note/NoteDetails";
 
-import AddFolder from "./Folder/AddFolder";
-import AddNote from "./Note/AddNote";
+import AddFolder from "../Folder/AddFolder";
+import AddNote from "../Note/AddNote";
 
-import ErrorBoundary from "./ErrorBoundary";
+import ErrorBoundary from "../ErrorBoundary";
 
 class App extends React.Component {
   render() {
