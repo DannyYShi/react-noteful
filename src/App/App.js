@@ -3,9 +3,9 @@ import { Route } from "react-router-dom";
 import { FileContextProvider } from "../FileContext";
 
 import Header from "./Header";
-import FoldersSidebar from "./FoldersSidebar";
+import FoldersSidebar from "../Folder/FolderSidebar";
 import NoteSidebar from "../Note/NoteSidebar";
-import NotesList from "./NotesList";
+import NotesList from "../Note/NoteList";
 import NoteDetails from "../Note/NoteDetails";
 
 import AddFolder from "../Folder/AddFolder";

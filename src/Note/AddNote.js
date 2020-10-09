@@ -116,7 +116,11 @@ class AddNote extends React.Component {
         <label htmlFor="folder-name">Folder Name</label>
         <select onChange={(e) => this.getFolderName(e.target.value)}>
           {this.context.folders.map((folder) => {
-            return <option value={folder.id}>{folder.name}</option>;
+            return (
+              <option value={folder.id} key={folder.id}>
+                {folder.name}
+              </option>
+            );
           })}
         </select>
         <button type="submit">Add</button>

@@ -75,7 +75,7 @@ class Note extends React.Component {
         onClick={(e) => handleClick(e)}
         className={isLinkClass}
       >
-        <div className="title">
+        <div className="title" key={this.props.note.id}>
           <h2>{this.props.note.name}</h2>
           <p>Date modified on {fullDate}</p>
         </div>
