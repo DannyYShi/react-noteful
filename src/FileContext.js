@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import config from "./config";
 const FileContext = React.createContext();
 export default FileContext;
 
@@ -10,7 +10,7 @@ export class FileContextProvider extends React.Component {
   };
 
   componentDidMount = () => {
-    fetch("http://localhost:9090/folders")
+    fetch(`${config.API_ENDPOINT}/folders`)
       .then((res) => {
         return res.json();
       })
@@ -20,7 +20,7 @@ export class FileContextProvider extends React.Component {
         });
       });
 
-    fetch("http://localhost:9090/notes")
+    fetch(`${config.API_ENDPOINT}/notes`)
       .then((res) => {
         if (!res.ok) {
           throw new Error("bad stuff yo");
@@ -41,7 +41,7 @@ export class FileContextProvider extends React.Component {
     console.log(folderName);
     let body = { name: folderName };
 
-    fetch(`http://localhost:9090/folders`, {
+    fetch(`${config.API_ENDPOINT}/folders`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -74,7 +74,7 @@ export class FileContextProvider extends React.Component {
       content: content,
     };
 
-    fetch(`http://localhost:9090/notes`, {
+    fetch(`${config.API_ENDPOINT}/notes`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -100,7 +100,7 @@ export class FileContextProvider extends React.Component {
   };
 
   deleteNote = (noteID) => {
-    fetch(`http://localhost:9090/notes/${noteID}`, {
+    fetch(`${config.API_ENDPOINT}/notes/${noteID}`, {
       method: "DELETE",
       headers: {
         "content-type": "application/json",
