@@ -39,13 +39,10 @@ export class FileContextProvider extends React.Component {
 
   addFolder = (folderName) => {
     console.log(folderName);
-    let body = { name: folderName };
+    let body = { folder_name: folderName };
 
-    fetch(`${config.API_ENDPOINT}/folders`, {
+    fetch(`${config.API_ENDPOINT}/folders/`, {
       method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
       body: JSON.stringify(body),
     })
       .then((res) => {

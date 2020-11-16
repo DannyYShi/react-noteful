@@ -1,4 +1,5 @@
 import React from "react";
+import config from "../config";
 import { NavLink, Redirect } from "react-router-dom";
 import FileContext from "../FileContext";
 import PropTypes from "prop-types";
@@ -10,11 +11,9 @@ class Note extends React.Component {
     if (this.props.note === undefined) {
       return <Redirect to="/"></Redirect>;
     }
-    let noteFolderId = this.props.note.folderId;
-    let noteFolder = this.context.folders.filter(
-      (folder) => folder.id === noteFolderId
-    );
-    let navLink = `/folder/${noteFolder[0].name}/${this.props.note.name}`;
+
+
+    let navLink = `/notes/${this.props.note.id}`;
 
     let modifiedDate = new Date(this.props.note.modified);
 
@@ -61,7 +60,9 @@ class Note extends React.Component {
       if (!this.props.isLink) {
         e.preventDefault();
       }
+      fetch(`${config.API_ENDPOINT}/notes/${this.props.note.id}`);
     };
+
     let isLinkClass = "isLink-" + this.props.isLink;
 
     const buttonClick = (e) => {
@@ -76,7 +77,7 @@ class Note extends React.Component {
         className={isLinkClass}
       >
         <div className="title" key={this.props.note.id}>
-          <h2>{this.props.note.name}</h2>
+          <h2>{this.props.note.note_name}</h2>
           <p>Date modified on {fullDate}</p>
         </div>
         <button type="button" onClick={(e) => buttonClick(e)}>

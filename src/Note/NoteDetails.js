@@ -9,7 +9,9 @@ class NoteDetails extends React.Component {
 
   render() {
     let noteName = this.props.routeProps.match.params.noteName;
-    let noteMatch = this.context.notes.filter((note) => note.name === noteName);
+    let noteMatch = this.context.notes.filter(
+      (note) => note.note_name === noteName
+    );
 
     if (noteMatch.length === 0) {
       return <Redirect to="/"></Redirect>;

@@ -10,13 +10,13 @@ class AddFolder extends React.Component {
   };
 
   setName = (name) => {
-    this.setState({ name: name });
+    this.setState({ folder_name: name });
   };
 
   folderList = function () {
     let folders = [];
     this.context.folders.forEach((folder) => {
-      folders.push(folder.name);
+      folders.push(folder.folder_name);
     });
     return folders;
   };
@@ -31,7 +31,7 @@ class AddFolder extends React.Component {
   }
 
   validateName = () => {
-    let name = this.state.name;
+    let name = this.state.folder_name;
     let folders = this.folderList();
 
     if (name.length === 0) {

@@ -13,7 +13,7 @@ class NotesList extends React.Component {
 
     if (typeof this.props.routeProps !== "undefined") {
       // A folder is filtered
-      let folderName = this.props.routeProps.match.params.folderName;
+      let folderName = this.props.routeProps.match.params.folder_name;
       let folderMatch = this.context.folders.filter(
         (folder) => folder.name === folderName
       );
